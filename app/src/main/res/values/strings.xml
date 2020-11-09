@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ENI-TP</string>
+    <string name="bought_tb_off">Acheté</string>
+    <string name="bought_tb_on">À acheter</string>
+    <string name="todo">\@TODO</string>
+</resources>
