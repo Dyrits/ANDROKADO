@@ -3,6 +3,7 @@ package fr.eni.tp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RatingBar;
@@ -50,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void handleClickIB(View view) {
-        Toast.makeText(this, article.getUrl(), Toast.LENGTH_SHORT).show();
+        // Toast.makeText(this, article.getUrl(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, InfoURLActivity.class);
+        intent.putExtra("Article", article);
+        startActivity(intent);
     }
 }
