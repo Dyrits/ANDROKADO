@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/name_tv"
+        android:id="@+id/name_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -16,31 +17,31 @@
         app:layout_constraintLeft_toLeftOf="parent"
         />
     <TextView
-        android:id="@+id/price_tv"
+        android:id="@+id/price_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@id/name_tv"
+        app:layout_constraintTop_toBottomOf="@id/name_TV"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
         />
     <RatingBar
-        android:id="@+id/rating_rb"
+        android:id="@+id/rating_RB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/price_tv"
+        app:layout_constraintBottom_toBottomOf="@id/price_TV"
         style="@style/Base.Widget.AppCompat.RatingBar.Small"
         />
     <TextView
-        android:id="@+id/description_tv"
+        android:id="@+id/description_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginStart="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/price_tv"
+        app:layout_constraintTop_toBottomOf="@id/price_TV"
         />
     <ImageButton
         android:id="@+id/url_ib"
@@ -51,12 +52,12 @@
         android:contentDescription="@string/todo"
         android:onClick="handleClickIB"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/bought_tb"
-        app:layout_constraintBottom_toBottomOf="@id/bought_tb"
+        app:layout_constraintTop_toTopOf="@id/bought_TB"
+        app:layout_constraintBottom_toBottomOf="@id/bought_TB"
         app:layout_constraintWidth_percent="0.5"
         />
     <ToggleButton
-        android:id="@+id/bought_tb"
+        android:id="@+id/bought_TB"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"

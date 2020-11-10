@@ -6,34 +6,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RatingBar;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import fr.eni.tp.bo.Article;
+import fr.eni.tp.databinding.MainActivityBinding;
 
 
 public class MainActivity extends AppCompatActivity {
-
     protected Article article;
-
+    MainActivityBinding layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        TextView nameTv =  findViewById(R.id.name_tv);
-        TextView descriptionTV = findViewById(R.id.description_tv);
-        TextView priceTV = findViewById(R.id.price_tv);
-        RatingBar ratingRB = findViewById(R.id.rating_rb);
-        ToggleButton boughtTB = findViewById(R.id.bought_tb);
+        layout = MainActivityBinding.inflate(getLayoutInflater());
+        View view = layout.getRoot();
+        setContentView(view);
         article = generateArticle();
-        nameTv.setText(article.getName());
-        descriptionTV.setText(article.getDescription());
-        priceTV.setText(article.getPriceToString());
-        ratingRB.setRating((float) article.getRating());
-        boughtTB.setChecked(article.isBought());
+        layout.nameTV.setText(article.getName());
+        layout.descriptionTV.setText(article.getDescription());
+        layout.priceTV.setText(article.getPriceToString());
+        layout.ratingRB.setRating((float) article.getRating());
+        layout.boughtTB.setChecked(article.isBought());
     }
 
     protected Article generateArticle() {

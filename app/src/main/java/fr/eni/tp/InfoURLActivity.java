@@ -4,16 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
 
 import fr.eni.tp.bo.Article;
+import fr.eni.tp.databinding.ActivityInfoUrlBinding;
 
 public class InfoURLActivity extends AppCompatActivity {
+
+    ActivityInfoUrlBinding layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info_url);
+        layout = ActivityInfoUrlBinding.inflate(getLayoutInflater());
+        View view = layout.getRoot();
+        setContentView(view);
     }
 
     @Override
@@ -21,7 +26,6 @@ public class InfoURLActivity extends AppCompatActivity {
         super.onResume();
         Intent intent = this.getIntent();
         Article article = intent.getParcelableExtra("Article");
-        TextView urlTV = findViewById(R.id.url_tv);
-        urlTV.setText(article.getUrl());
+        layout.urlTV.setText(article.getUrl());
     }
 }
