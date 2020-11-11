@@ -11,7 +11,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class Article implements Parcelable {
     private String name, description, url;
-    private double price, rating;
+    private double price;
+    int rating;
     private boolean bought;
 
     protected Article(Parcel in) {
@@ -19,8 +20,12 @@ public class Article implements Parcelable {
         description = in.readString();
         url = in.readString();
         price = in.readDouble();
-        rating = in.readDouble();
+        rating = in.readInt();
         bought = in.readByte() != 0;
+    }
+
+    public Article(String name, String description, String url, double price, int rating) {
+        this(name, description, url, price, rating, false);
     }
 
     public static final Creator<Article> CREATOR = new Creator<Article>() {
@@ -50,7 +55,7 @@ public class Article implements Parcelable {
         dest.writeString(description);
         dest.writeString(url);
         dest.writeDouble(price);
-        dest.writeDouble(rating);
+        dest.writeInt(rating);
         dest.writeByte((byte) (bought ? 1 : 0));
     }
 }

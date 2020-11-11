@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import fr.eni.tp.bo.Article;
@@ -21,22 +22,12 @@ public class MainActivity extends AppCompatActivity {
         layout = MainActivityBinding.inflate(getLayoutInflater());
         View view = layout.getRoot();
         setContentView(view);
-        article = generateArticle();
+        article = getIntent().getParcelableExtra("article");
         layout.nameTV.setText(article.getName());
         layout.descriptionTV.setText(article.getDescription());
         layout.priceTV.setText(article.getPriceToString());
-        layout.ratingRB.setRating((float) article.getRating());
+        layout.ratingRB.setRating(article.getRating());
         layout.boughtTB.setChecked(article.isBought());
-    }
-
-    protected Article generateArticle() {
-        return new Article(
-                "Pain au chocolat",
-                "Viennoiserie au beurre et au chocolat.",
-                "http://www.painauchocolat.fr",
-                1.5,
-                3,
-                false);
     }
 
     public void handleClickTB(View view) {
