@@ -23,7 +23,7 @@ public class ListArticlesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArticleAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
-    TextView.OnClickListener onClickTV = new TextView.OnClickListener() {
+    View.OnClickListener onClickTV = new View.OnClickListener() {
         @Override
         public void onClick(View view)
         {
