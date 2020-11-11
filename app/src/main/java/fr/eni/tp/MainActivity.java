@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 
 import fr.eni.tp.bo.Article;
@@ -28,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
         layout.priceTV.setText(article.getPriceToString());
         layout.ratingRB.setRating(article.getRating());
         layout.boughtTB.setChecked(article.isBought());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.toolbar_details,menu);
+        return true;
     }
 
     public void handleClickTB(View view) {

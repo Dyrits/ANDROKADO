@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
@@ -34,7 +35,6 @@ public class ListArticlesActivity extends AppCompatActivity {
         }
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +47,13 @@ public class ListArticlesActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new ArticleAdapter(articles, onClickTV);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.toolbar_list,menu);
+        return true;
     }
 
     // Set the articles:

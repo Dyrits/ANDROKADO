@@ -1,7 +1,11 @@
 <resources>
-    <string name="app_name">ENI-TP</string>
+    <string name="app_name">AndroKado</string>
     <string name="bought_tb_off">À acheter</string>
     <string name="bought_tb_on">Acheté</string>
     <string name="todo">\@TODO</string>
     <string name="placeholder">[PLACEHOLDER]</string>
+    <string name="edit_fr">Modifier</string>
+    <string name="send_fr">Envoyer</string>
+    <string name="add_fr">Ajouter</string>
+    <string name="configuration">Configuration</string>
 </resources>
