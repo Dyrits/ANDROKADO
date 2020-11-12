@@ -47,9 +47,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("article", article);
                 startActivity(intent);
                 break;
-            case R.id.items_list:
-                startActivity(new Intent(this, ListArticlesActivity.class));
-                break;
         }
         return super.onOptionsItemSelected(item);
     }

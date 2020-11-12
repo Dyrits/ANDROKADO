@@ -47,7 +47,7 @@ public class ArticleFormActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.item_save) {
             saveArticle();
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, ListArticlesActivity.class);
             intent.putExtra("article", article);
             startActivity(intent);
         }
