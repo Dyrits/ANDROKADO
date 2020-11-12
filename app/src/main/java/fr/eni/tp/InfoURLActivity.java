@@ -17,8 +17,7 @@ public class InfoURLActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         layout = ActivityInfoUrlBinding.inflate(getLayoutInflater());
-        View view = layout.getRoot();
-        setContentView(view);
+        setContentView(layout.getRoot());
     }
 
     @Override

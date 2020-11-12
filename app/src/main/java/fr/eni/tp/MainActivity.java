@@ -21,8 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         layout = MainActivityBinding.inflate(getLayoutInflater());
-        View view = layout.getRoot();
-        setContentView(view);
+        setContentView(layout.getRoot());
         article = getIntent().getParcelableExtra("article");
         layout.nameTV.setText(article.getName());
         layout.descriptionTV.setText(article.getDescription());

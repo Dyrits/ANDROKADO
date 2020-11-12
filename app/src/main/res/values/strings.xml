@@ -8,4 +8,6 @@
     <string name="send_fr">Envoyer</string>
     <string name="add_fr">Ajouter</string>
     <string name="configuration">Configuration</string>
+    <string name="sort_price_fr">Tri par prix</string>
+    <string name="default_price_fr">Prix par défaut</string>
 </resources>
