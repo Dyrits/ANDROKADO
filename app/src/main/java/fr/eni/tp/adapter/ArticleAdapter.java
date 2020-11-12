@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import fr.eni.tp.bo.Article;
+import fr.eni.tp.entities.Article;
 import fr.eni.tp.databinding.CardListItemBinding;
 
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.MyViewHolder> {

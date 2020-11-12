@@ -3,13 +3,14 @@ package fr.eni.tp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
-import fr.eni.tp.bo.Article;
+import fr.eni.tp.entities.Article;
 import fr.eni.tp.databinding.MainActivityBinding;
 
 
@@ -35,6 +36,22 @@ public class MainActivity extends AppCompatActivity {
     {
         getMenuInflater().inflate(R.menu.toolbar_details,menu);
         return true;
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.item_edit:
+                Intent intent = new Intent(this, ArticleFormActivity.class);
+                intent.putExtra("article", article);
+                startActivity(intent);
+                break;
+            case R.id.items_list:
+                startActivity(new Intent(this, ListArticlesActivity.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void handleClickTB(View view) {

@@ -1,31 +1,51 @@
-package fr.eni.tp.bo;
+package fr.eni.tp.entities;
 
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class Article implements Parcelable {
-    private String name, description, url;
-    private double price;
-    int rating;
-    private boolean bought;
+    @PrimaryKey(autoGenerate = true)
+    public long id;
+
+    @ColumnInfo(name = "name")
+    public String name;
+
+    @ColumnInfo(name = "description")
+    public String description;
+
+    @ColumnInfo(name = "url")
+    public String url;
+
+    @ColumnInfo(name = "price")
+    public double price;
+
+    @ColumnInfo(name = "rating")
+    public float rating;
+
+    @ColumnInfo(name = "bought")
+    public boolean bought;
 
     protected Article(Parcel in) {
+        id = in.readLong();
         name = in.readString();
         description = in.readString();
         url = in.readString();
         price = in.readDouble();
-        rating = in.readInt();
+        rating = in.readFloat();
         bought = in.readByte() != 0;
-    }
-
-    public Article(String name, String description, String url, double price, int rating) {
-        this(name, description, url, price, rating, false);
     }
 
     public static final Creator<Article> CREATOR = new Creator<Article>() {
@@ -51,11 +71,12 @@ public class Article implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
         dest.writeString(name);
         dest.writeString(description);
         dest.writeString(url);
         dest.writeDouble(price);
-        dest.writeInt(rating);
+        dest.writeFloat(rating);
         dest.writeByte((byte) (bought ? 1 : 0));
     }
 }

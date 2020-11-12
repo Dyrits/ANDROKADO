@@ -4,9 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
-import fr.eni.tp.bo.Article;
+import fr.eni.tp.entities.Article;
 import fr.eni.tp.databinding.ActivityInfoUrlBinding;
 
 public class InfoURLActivity extends AppCompatActivity {

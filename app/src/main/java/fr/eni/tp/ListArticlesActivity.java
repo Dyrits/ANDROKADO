@@ -4,22 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.tp.adapter.ArticleAdapter;
-import fr.eni.tp.bo.Article;
+import fr.eni.tp.entities.Article;
 import fr.eni.tp.databinding.ActivityListArticlesBinding;
 
 public class ListArticlesActivity extends AppCompatActivity {
+    AppDatabase DB;
     ActivityListArticlesBinding layout;
     List<Article> articles = new ArrayList<>();
     RecyclerView recyclerView;
@@ -42,12 +43,17 @@ public class ListArticlesActivity extends AppCompatActivity {
         layout = ActivityListArticlesBinding.inflate(getLayoutInflater());
         recyclerView = layout.getRoot();
         setContentView(recyclerView);
-        setArticles();
-        recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        adapter = new ArticleAdapter(articles, onClickTV);
-        recyclerView.setAdapter(adapter);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        DB = AppDatabase.getAppDatabase(this);
+        SharedPreferences configuration = getSharedPreferences("CONFIG", MODE_PRIVATE);
+        boolean sorted = configuration.getBoolean(ConfigurationActivity.SORT_PRICE, false);
+        articles = sorted ? DB.articleDAO().getSorted() : DB.articleDAO().get();
+        loadRecyclerView();
     }
 
     @Override
@@ -56,19 +62,31 @@ public class ListArticlesActivity extends AppCompatActivity {
         return true;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.item_configuration) {
-            startActivity(new Intent(this, ConfigurationActivity.class));
+        switch (item.getItemId()) {
+            case R.id.item_configuration:
+                startActivity(new Intent(this, ConfigurationActivity.class));
+                break;
+            case R.id.item_add:
+                startActivity(new Intent(this, ArticleFormActivity.class));
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    // Set the articles:
-    private void setArticles() {
-        String description = "Instrument de musique";
-        articles.add(new Article("Guitare", description, "http://www.guitare.fr", 100, 5));
-        articles.add(new Article("Basse", description, "http://www.basse.fr", 125, 4));
-        articles.add(new Article("Flûte", description, "http://www.flute.fr", 17.95, 2));
+    @Override
+    protected void onStop() {
+        super.onStop();
+        AppDatabase.destroyDB();
+    }
+
+    protected void loadRecyclerView() {
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new ArticleAdapter(articles, onClickTV);
+        recyclerView.setAdapter(adapter);
     }
 }

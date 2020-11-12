@@ -10,4 +10,10 @@
     <string name="configuration">Configuration</string>
     <string name="sort_price_fr">Tri par prix</string>
     <string name="default_price_fr">Prix par défaut</string>
+    <string name="name_fr">Nom</string>
+    <string name="description">Description</string>
+    <string name="price_fr">Prix</string>
+    <string name="url">URL</string>
+    <string name="save_fr">Sauvegarder</string>
+    <string name="display_list_fr">Afficher la liste</string>
 </resources>

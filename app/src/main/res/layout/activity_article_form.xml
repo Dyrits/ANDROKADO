@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ArticleFormActivity">
+
+    <EditText
+        android:id="@+id/form_name_ET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/name_fr"
+        android:inputType="textCapWords"
+        android:minWidth="250dp"
+        app:layout_constraintTop_toTopOf="@id/form_description_ET"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="Autofill" />
+    <EditText
+        android:id="@+id/form_description_ET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/description"
+        android:inputType="textMultiLine"
+        android:minWidth="250dp"
+        android:minHeight="100dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/form_name_ET"
+        app:layout_constraintBottom_toTopOf="@id/form_URL_ET"
+        tools:ignore="Autofill"
+        />
+    <EditText
+        android:id="@+id/form_URL_ET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/url"
+        android:inputType="textUri"
+        android:minWidth="250dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/form_description_ET"
+        app:layout_constraintBottom_toTopOf="@id/form_price_ET"
+        tools:ignore="Autofill" />
+
+    <EditText
+        android:id="@+id/form_price_ET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/price_fr"
+        android:inputType="numberDecimal"
+        android:maxLength="8"
+        android:minWidth="250dp"
+        app:layout_constraintBottom_toTopOf="@id/form_rating_RB"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/form_URL_ET"
+        tools:ignore="Autofill" />
+
+    <RatingBar
+        android:id="@+id/form_rating_RB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isIndicator="false"
+        android:max="5"
+        android:numStars="5"
+        android:progress="0"
+        app:layout_constraintBottom_toTopOf="@id/form_price_ET"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
