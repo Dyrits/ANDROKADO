@@ -16,17 +16,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.tp.adapter.ArticleAdapter;
+import fr.eni.tp.databinding.ActivityRecyclerViewBinding;
 import fr.eni.tp.entities.Article;
-import fr.eni.tp.databinding.ActivityListArticlesBinding;
 
 public class ListArticlesActivity extends AppCompatActivity {
     List<Article> articles = new ArrayList<>();
     AppDatabase DB;
-    ActivityListArticlesBinding layout;
+    ActivityRecyclerViewBinding layout;
     RecyclerView recyclerView;
     ArticleAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
-    View.OnClickListener onClickTV = new View.OnClickListener() {
+    View.OnClickListener onClickV = new View.OnClickListener() {
         @Override
         public void onClick(View view)
         {
@@ -40,10 +40,9 @@ public class ListArticlesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        layout = ActivityListArticlesBinding.inflate(getLayoutInflater());
+        layout = ActivityRecyclerViewBinding.inflate(getLayoutInflater());
         recyclerView = layout.getRoot();
         setContentView(recyclerView);
-
     }
 
     @Override
@@ -86,7 +85,7 @@ public class ListArticlesActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new ArticleAdapter(articles, onClickTV);
+        adapter = new ArticleAdapter(articles, onClickV);
         recyclerView.setAdapter(adapter);
     }
 }

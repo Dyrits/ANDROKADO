@@ -32,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.toolbar_details,menu);
@@ -43,10 +48,14 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.item_edit:
-                Intent intent = new Intent(this, ArticleFormActivity.class);
-                intent.putExtra("article", article);
-                startActivity(intent);
+                Intent edit = new Intent(this, ArticleFormActivity.class);
+                edit.putExtra("article", article);
+                startActivity(edit);
                 break;
+            case R.id.item_send:
+                Intent send = new Intent(this, ListContactsActivity.class);
+                send.putExtra("article", article);
+                startActivity(send);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -57,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void handleClickIB(View view) {
         // Toast.makeText(this, article.getUrl(), Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, InfoURLActivity.class);
-        intent.putExtra("Article", article);
-        startActivity(intent);
+        Intent info = new Intent(this, InfoURLActivity.class);
+        info.putExtra("Article", article);
+        startActivity(info);
     }
 }

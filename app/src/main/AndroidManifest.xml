@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="fr.eni.tp">
 
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
     <application
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AndroKado">
-        <activity android:name=".ArticleFormActivity"></activity>
+        android:theme="@style/AndroKado"
+        tools:ignore="AllowBackup">
+        <activity android:name=".ListContactsActivity"></activity>
+        <activity android:name=".ArticleFormActivity" />
         <activity android:name=".ConfigurationActivity" />
         <activity android:name=".ListArticlesActivity">
             <intent-filter>
