@@ -20,9 +20,9 @@ import fr.eni.tp.entities.Article;
 import fr.eni.tp.databinding.ActivityListArticlesBinding;
 
 public class ListArticlesActivity extends AppCompatActivity {
+    List<Article> articles = new ArrayList<>();
     AppDatabase DB;
     ActivityListArticlesBinding layout;
-    List<Article> articles = new ArrayList<>();
     RecyclerView recyclerView;
     ArticleAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
@@ -77,8 +77,8 @@ public class ListArticlesActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onPause() {
+        super.onPause();
         AppDatabase.destroyDB();
     }
 

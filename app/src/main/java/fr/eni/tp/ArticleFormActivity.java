@@ -55,8 +55,8 @@ public class ArticleFormActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onPause() {
+        super.onPause();
         AppDatabase.destroyDB();
     }
 
