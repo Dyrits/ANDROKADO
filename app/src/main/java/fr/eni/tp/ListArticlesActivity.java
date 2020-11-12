@@ -31,9 +31,9 @@ public class ListArticlesActivity extends AppCompatActivity {
         public void onClick(View view)
         {
             int position = Integer.parseInt(view.getTag().toString());
-            Intent intent = new Intent(ListArticlesActivity.this, MainActivity.class);
-            intent.putExtra("article", articles.get(position));
-            startActivity(intent);
+            Intent details = new Intent(ListArticlesActivity.this, MainActivity.class);
+            details.putExtra("article", articles.get(position));
+            startActivity(details);
         }
     };
 

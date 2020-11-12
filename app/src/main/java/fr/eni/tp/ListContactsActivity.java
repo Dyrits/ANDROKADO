@@ -9,15 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.telephony.SmsManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -68,12 +65,6 @@ public class ListContactsActivity extends AppCompatActivity {
         super.onResume();
         loadRecyclerView();
     }
-
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (requestCode == 1000 && hasPermissions(this)) { loadContacts(); }
-//    }
 
     public static boolean hasPermissions(Context context) {
         if (context != null && permissions != null) {
