@@ -5,7 +5,7 @@
 ### Cursus
 ENI | Le développement d’une application mobile sous Android
 
-### [Documentation](https://github.com/Dyrits/SORTIR.COM/tree/master/documentation)
+### [Documentation](https://github.com/Dyrits/ANDROKADO/tree/main/documentation)
 
 ### Technologies | Outils
 - Android Studio
