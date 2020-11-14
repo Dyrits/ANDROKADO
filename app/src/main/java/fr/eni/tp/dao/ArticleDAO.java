@@ -19,21 +19,9 @@ public interface ArticleDAO {
     @Query("SELECT * FROM article ORDER BY price")
     List<Article> getSorted();
 
-    @Query("SELECT * FROM article WHERE id IN (:articleIDs)")
-    List<Article> get(int... articleIDs);
-
-    @Query("SELECT * FROM article WHERE id = :articleID")
-    Article get(int articleID);
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insert(Article article);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    List<Long> insert(Article... articles);
-
     @Update
     void update(Article... articles);
-
-    @Delete
-    int delete(Article... article);
 }
