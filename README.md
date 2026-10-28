@@ -1,24 +1,25 @@
 # AndroKado
 
-## A propos de ce projet
+An Android app built with Java and the Room Persistence Library, for the ENI course "Le développement d'une application mobile sous Android".
 
-### Cursus
-ENI | Le développement d’une application mobile sous Android
+## About The Project
 
-### [Documentation](https://github.com/Dyrits/ANDROKADO/tree/main/documentation)
+A mobile application developed as the course project.
 
-### Technologies | Outils
+### Built With
+
 - Android Studio
-	- Room Persistence Library
+- Room Persistence Library
 - Java
 
-### Contribution
-Les *pull requests* sont les bienvenues. Pour les changements majeurs, merci d'ouvrir une *issue* pour en discuter.
+## Documentation
 
-### Statut
-Terminé
+See the [documentation](https://github.com/Dyrits/ANDROKADO/tree/main/documentation) folder.
 
-#### Dernière mise à jour
-14/11/2020
-(README | 14/11/2020)
+## Status
 
+Completed.
+
+## License
+
+No license file is present.
